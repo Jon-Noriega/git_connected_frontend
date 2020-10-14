@@ -1,5 +1,14 @@
+ /* @import url("https://fonts.googleapis.com/css2?family=Schoolbell&display=swap");   */
+
 .App {
   text-align: center;
+  font-family: "Schoolbell", sans-serif;
+  color: antiquewhite;
+  text-shadow: 1px 1px 1px  rgb(0, 0, 0),
+  2px 2px 2px rgb(255, 255, 255);
+  background-image: url(./pics/chalkboard.jpg);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 main {
@@ -8,40 +17,56 @@ main {
 
 .all-characters {
   display: flex;
+  font-family: "Schoolbell", sans-serif;
+  color: antiquewhite;
+  text-shadow: 1px 1px 1px  rgb(0, 0, 0),
+  1px 1px 2px rgb(255, 255, 255);
   flex-direction: column;
   width: 50%;
-  border: 25px solid black;
+  border: 15px solid black;
+  opacity: 0.2;
+  border-radius: 15px;
   margin: 5px;
+}
+
+.all-characters:hover {
+  opacity: 1.0;
 }
 
 .sorted-characters {
   display: flex;
+  color: antiquewhite;
+  text-shadow: 1px 1px 1px  rgb(0, 0, 0),
+  1px 1px 2px rgb(255, 255, 255);
   flex-direction: column;
   width: 50%;
+  opacity: 0.2;
 }
 
+.sorted-characters:hover {
+  opacity: 1.0;
+}
 .alive {
   display: flex;
+  color: antiquewhite;
   flex-direction: column;
-  border: 25px solid lightgreen;
+  border: 15px solid rgb(0, 0, 0);
+  border-radius: 15px;
   margin: 5px;
 }
 
-.deceased {
-  display: flex;
-  flex-direction: column;
-  border: 25px solid darkred;
-  margin: 5px;
-}
+
 
 .characters {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  border-radius: 15px;
 }
 
 .card {
   border: 1px solid black;
+  border-radius: 15px;
   width: 200px;
   margin: 5px;
 }
@@ -51,5 +76,8 @@ h3 {
 }
 
 button {
+  background-color: transparent;
+  color: antiquewhite;
   margin: 5px;
+  border-radius: 8px;
 }

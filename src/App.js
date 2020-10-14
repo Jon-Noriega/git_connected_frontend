@@ -6,12 +6,11 @@ class App extends React.Component {
 
   state = {
     characters: [],
-    alive: [],
-    deceased: []
+    alive: []
   }
 
 
-  addToAlive = (character) => {
+  addToSchedule = (character) => {
     if (!this.state.alive.find(aliveCharacter => aliveCharacter === character)) {
       const updatedCharacters = this.state.characters.filter(charac => charac !== character)
       this.setState({ characters: updatedCharacters, alive: [...this.state.alive, character] })
@@ -27,13 +26,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Breaking Bad</h1>
+        <h1>Git Connected</h1>
         <main>
           <section className='all-characters'>
-            <h2>All Characters</h2>
+            <h2>Events</h2>
             <Characters
               characters={this.state.characters}
-              addToAlive={this.addToAlive}
+              addToSchedule={this.addToSchedule}
             />
           </section>
           <div className='sorted-characters'>
@@ -41,7 +40,7 @@ class App extends React.Component {
               <h2>Schedule</h2>
               <Characters
                 characters={this.state.alive}
-                addToAlive={this.addToAlive}
+                addToSchedule={this.addToSchedule}
 
               />
             </section>
