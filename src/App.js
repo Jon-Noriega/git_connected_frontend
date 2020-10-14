@@ -1,26 +1,27 @@
 import React from 'react'
 import './App.css'
-import Programs from './components/Programs'
+import Characters from './components/Characters'
 
 class App extends React.Component {
 
   state = {
-    programs: [],
-    schedule: [],
+    characters: [],
+    alive: [],
+    deceased: []
   }
 
 
-  addToSchedule = (program) => {
-    if (!this.state.schedule.find(aliveCharacter => aliveCharacter === program)) {
-      const updatedSchedule = this.state.programs.filter(prog => prog !== program)
-      this.setState({ programs: updatedSchedule, schedule: [...this.state.schedule, program] })
+  addToAlive = (character) => {
+    if (!this.state.alive.find(aliveCharacter => aliveCharacter === character)) {
+      const updatedCharacters = this.state.characters.filter(charac => charac !== character)
+      this.setState({ characters: updatedCharacters, alive: [...this.state.alive, character] })
     }
   }
 
   componentDidMount() {
-    fetch('https://breakingbadapi.com/api/programs')
+    fetch('http://localhost:3000/events')
       .then(response => response.json())
-      .then(programs => this.setState({ programs }))
+      .then(characters => this.setState({ characters }))
   }
 
   render() {
@@ -28,24 +29,21 @@ class App extends React.Component {
       <div className="App">
         <h1>Breaking Bad</h1>
         <main>
-          <section className='all-programs'>
+          <section className='all-characters'>
             <h2>All Characters</h2>
-            <Programs
-              programs={this.state.programs}
+            <Characters
+              characters={this.state.characters}
               addToAlive={this.addToAlive}
             />
           </section>
-          <div className='sorted-programs'>
-            <section className='schedule'>
-              <h2> Alive</h2>
-              <Programs
-                programs={this.state.schedule}
+          <div className='sorted-characters'>
+            <section className='alive'>
+              <h2>Schedule</h2>
+              <Characters
+                characters={this.state.alive}
                 addToAlive={this.addToAlive}
 
               />
-            </section>
-            <section className='deceased'>
-              <h2>Deceased</h2>
             </section>
           </div>
         </main>
