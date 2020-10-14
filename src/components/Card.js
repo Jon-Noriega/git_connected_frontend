@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function Card({ character, addToAlive }) {
+export default function Card({ character, addToSchedule }) {
 
     const { name } = character
 
     const handleAliveClick = () => {
-        addToAlive(character)
+        addToSchedule(character)
     }
 
     return (
